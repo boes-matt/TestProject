@@ -1,6 +1,6 @@
 # Test Project
 
-Test Project is an example project structure for a Gradle-based Android app with tests.
+Test Project is an example of a Gradle-based, Android Studio project structure with regular Android tests, Espresso tests, and JVM JUnit 4 tests.
 
 ## Outline
 
@@ -23,7 +23,7 @@ Android-specific test package located at [app/src/androidTest](https://github.co
 
 [com.boes.testproject.core](https://github.com/boes-matt/TestProject/tree/master/core/src/main/java/com/boes/testproject/core):
 Java library package located at [core/src/main](https://github.com/boes-matt/TestProject/tree/master/core/src/main)
-<br/>It is for code that does not rely on the Android framework.
+<br/>It is for application code that does not rely on the Android framework.
 
 [com.boes.testproject.core.test](https://github.com/boes-matt/TestProject/tree/master/core/src/test/java/com/boes/testproject/core/test):
 Java library test package located at [core/src/test](https://github.com/boes-matt/TestProject/tree/master/core/src/test)
@@ -34,26 +34,28 @@ Java library test package located at [core/src/test](https://github.com/boes-mat
   * Espresso is set up in [app/build.gradle](https://github.com/boes-matt/TestProject/blob/master/app/build.gradle) using Jake Wharton's [Double Espresso](https://github.com/JakeWharton/double-espresso) tool
 
 
-  * See Double Espresso README about any dependency exclusions needed in build.gradle for your project
+  * See [Double Espresso](https://github.com/JakeWharton/double-espresso) README about any dependency exclusions needed in build.gradle for your project
 
 
-  * This project excludes the support library in its androidTestCompile because it's already included from the compile dependencies
+  * This project excludes the support library in its androidTestCompile because it's already included from the compile dependencies in [app/build.gradle](https://github.com/boes-matt/TestProject/blob/master/app/build.gradle)
 
 
-  * In build.gradle, set the testInstrumentationRunner in the defaultConfig to GoogleInstrumentationTestRunner
+  * Set the testInstrumentationRunner in the defaultConfig to GoogleInstrumentationTestRunner in [app/build.gradle](https://github.com/boes-matt/TestProject/blob/master/app/build.gradle)
 
 
-  * In build.gradle, exclude LICENSE.txt within packagingOptions
+  * Exclude LICENSE.txt within packagingOptions in [app/build.gradle](https://github.com/boes-matt/TestProject/blob/master/app/build.gradle)
 
+
+  * Add the Android-independent, core package library as a compile dependency in [app/build.gradle](https://github.com/boes-matt/TestProject/blob/master/app/build.gradle)
 
 ## Set up Android Studio run configurations
 
 * <i>app</i>: Runs the app
 
 
-* <i>App Tests</i>: Runs Android-dependent tests in the com.boes.testproject.app.test package on the device
-<br/>Specify instrumentation runner as GoogleInstrumentationTestRunner (Find by including non-project classes in search).
+* <i>App Tests</i>: Runs Android-dependent tests in [com.boes.testproject.app.test](https://github.com/boes-matt/TestProject/tree/master/app/src/androidTest/java/com/boes/testproject/app/test) on device
+<br/>Specify instrumentation runner as GoogleInstrumentationTestRunner in setup.  Find by including non-project classes in search.
 
 
-* <i>Core Tests</i>: Runs independent Java tests in the com.boes.testproject.core.test package on your development machine
+* <i>Core Tests</i>: Runs independent Java tests in [com.boes.testproject.core.test](https://github.com/boes-matt/TestProject/tree/master/core/src/test/java/com/boes/testproject/core/test) on development machine
 <br/>Package contains JUnit 4 style test cases.
