@@ -18,7 +18,7 @@ main app package located at [app/src/main](https://github.com/boes-matt/TestProj
 
 [com.boes.testproject.app.test](https://github.com/boes-matt/TestProject/tree/master/app/src/androidTest/java/com/boes/testproject/app/test):
 Android-specific test package located at [app/src/androidTest](https://github.com/boes-matt/TestProject/tree/master/app/src/androidTest)
-<br/>Tests use both the stock [Android testing framework](http://developer.android.com/tools/testing/testing_android.html) and [Espresso](https://code.google.com/p/android-test-kit/wiki/Espresso) from the Android Test Kit.
+<br/>Tests use both the stock [Android testing framework](http://developer.android.com/tools/testing/testing_android.html) and [Espresso](https://code.google.com/p/android-test-kit/wiki/Espresso).
 
 
 [com.boes.testproject.core](https://github.com/boes-matt/TestProject/tree/master/core/src/main/java/com/boes/testproject/core):
@@ -29,21 +29,31 @@ Java library package located at [core/src/main](https://github.com/boes-matt/Tes
 Java library test package located at [core/src/test](https://github.com/boes-matt/TestProject/tree/master/core/src/test)
 <br/>It contains tests that run on the JVM.
 
-## Gradle and Android Studio Setup
+## Gradle
 
-#### Espresso is set up in [app/build.gradle](https://github.com/boes-matt/TestProject/blob/master/app/build.gradle) using Jake Wharton's [Double Espresso](https://github.com/JakeWharton/double-espresso) tool:
+  * Espresso is set up in [app/build.gradle](https://github.com/boes-matt/TestProject/blob/master/app/build.gradle) using Jake Wharton's [Double Espresso](https://github.com/JakeWharton/double-espresso) tool
 
-  * See README for Double Espresso about any dependency exclusions needed in build.gradle for your project.
-  * This project excludes the support library in its androidTestCompile because it's already included from the compile dependencies.
-  * In build.gradle, set the testInstrumentationRunner in the defaultConfig to GoogleInstrumentationTestRunner.
-  * In build.gradle, exclude LICENSE.txt within packagingOptions.
 
-#### Test run configurations in Android Studio:
+  * See Double Espresso README about any dependency exclusions needed in build.gradle for your project
 
-App Tests: Set up for Android-dependent tests in com.boes.testproject.app.test package
+
+  * This project excludes the support library in its androidTestCompile because it's already included from the compile dependencies
+
+
+  * In build.gradle, set the testInstrumentationRunner in the defaultConfig to GoogleInstrumentationTestRunner
+
+
+  * In build.gradle, exclude LICENSE.txt within packagingOptions
+
+
+## Set up Android Studio run configurations
+
+* <i>app</i>: Runs the app
+
+
+* <i>App Tests</i>: Runs Android-dependent tests in the com.boes.testproject.app.test package on the device
 <br/>Specify instrumentation runner as GoogleInstrumentationTestRunner (Find by including non-project classes in search).
 
-Core Tests: Set up for independent Java tests in com.boes.testproject.core.test package
+
+* <i>Core Tests</i>: Runs independent Java tests in the com.boes.testproject.core.test package on your development machine
 <br/>Package contains JUnit 4 style test cases.
-
-
